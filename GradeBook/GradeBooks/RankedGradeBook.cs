@@ -46,5 +46,31 @@ namespace GradeBook.GradeBooks
                 return 'F';
 
         }
+
+        public override void CalculateStatistics()
+        {
+            var studentsCount = Students.Count;
+
+            if (studentsCount < 5)
+            {
+                Console.WriteLine("Ranked grading requires at least 5 students with grades in order to properly calculate a student's overall grade.");
+                return;
+            }
+
+            base.CalculateStatistics();
+        }
+
+        public override void CalculateStudentStatistics(string name)
+        {
+            var studentsCount = Students.Count;
+
+            if (studentsCount < 5)
+            {
+                Console.WriteLine("Ranked grading requires at least 5 students with grades in order to properly calculate a student's overall grade.");
+                return;
+            }
+
+            base.CalculateStudentStatistics(name);
+        }
     }
 }
